@@ -1,10 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NLayer.API.Filters;
 using NLayer.Core.DTOs;
 
 namespace NLayer.API.Controllers
 {
     public class CustomBaseController : ControllerBase
     {
+        [ValidateFilterAttribute]
         [NonAction]
         public IActionResult CreateActionResult<T>(CustomResponseDTO<T> response)
         {

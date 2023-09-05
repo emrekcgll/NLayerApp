@@ -1,7 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using NLayer.Repository;
+using NLayer.Service.Mapping;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddAutoMapper(typeof(MapProfile));
+builder.Services.AddDbContext<Context>(x => x.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection")));
+
 
 var app = builder.Build();
 
