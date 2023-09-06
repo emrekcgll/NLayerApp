@@ -3,28 +3,42 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<table>
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Product</th>
-            <th>Stock</th>
-            <th>Price</th>
-            <th>Category</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>@item.Id</td>
-                <td>@item.Name</td>
-                <td>@item.Stock</td>
-                <td>@item.Price</td>
-                <td>@item.Category.Name</td>
-            </tr>
-        }
-    </tbody>
-</table>
-
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Product</th>
+                    <th>Stock</th>
+                    <th>Price</th>
+                    <th>Category</th>
+                    <th width="1px"></th>
+                    <th width="1px"></th>
+                    <th width="1px"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Id</td>
+                        <td>@item.Name</td>
+                        <td>@item.Stock</td>
+                        <td>@item.Price</td>
+                        <td>@item.Category.Name</td>
+                        <td>
+                            <a>Details</a>
+                        </td>
+                        <td>
+                            <a>Update</a>
+                        </td>
+                        <td>
+                            <a>Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

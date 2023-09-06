@@ -1,0 +1,30 @@
+﻿@using NLayer.Core.DTOs;
+@model ProductDTO
+
+@{
+    ViewData["Title"] = "Update";
+}
+<div class="row">
+    <h1>Update</h1>
+    <div class="col-md-4">
+        <form method="post">
+            <div class="form-group mb-2">
+                <label for="name">Name</label>
+                <input id="name" class="form-control" value="@Model.Name" />
+            </div>
+            <div class="form-group mb-2">
+                <label for="price">Price</label>
+                <input id="price" class="form-control" value="@Model.Price" />
+            </div>
+            <div class="form-group mb-2">
+                <label for="stock">Stock</label>
+                <input id="stock" class="form-control" value="@Model.Stock" />
+            </div>
+            <div class="form-group mb-2">
+                <label id="category" for="name">Category</label>
+                <input id="category" class="form-control" value="@Model.CategoryId" />
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>
