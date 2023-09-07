@@ -1,0 +1,29 @@
+﻿@using NLayer.Core.DTOs;
+@model ProductDTO
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="form-group mb-2">
+            <label>Name</label>
+            <label>@Model.Name</label>
+        </div>
+        <div class="form-group mb-2">
+            <label>Price</label>
+            <label>@Model.Price</label>
+        </div>
+        <div class="form-group mb-2">
+            <label>Stock</label>
+            <label>@Model.Stock</label>
+        </div>
+        <div class="form-group mb-2">
+            <label>Category</label>
+            <label>@Model.CategoryId</label>
+        </div>
+    </div>
+</div>

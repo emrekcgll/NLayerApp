@@ -1,31 +1,30 @@
 ﻿@using NLayer.Core.DTOs;
 @model ProductDTO
-
 @{
-    ViewData["Title"] = "Update";
+    ViewData["Title"] = "Add";
 }
 
+
 <div class="row">
-    <h1>Update</h1>
+    <h1>Add</h1>
     <div class="col-md-4">
-        <form method="post" asp-controller="Product" asp-action="Update">
-            <input type="hidden" asp-for="Id" value="@Model.Id" />
+        <form method="post" asp-controller="Product" asp-action="Add">
             <div asp-validation-summary="All"></div>
             <div class="form-group mb-2">
                 <label for="name">Name</label>
-                <input id="name" asp-for="Name" class="form-control" value="@Model.Name" />
+                <input id="name" asp-for="Name" class="form-control" />
             </div>
             <div class="form-group mb-2">
                 <label for="price">Price</label>
-                <input id="price" asp-for=Price class="form-control" value="@Model.Price" />
+                <input id="price" asp-for=Price class="form-control" />
             </div>
             <div class="form-group mb-2">
                 <label for="stock">Stock</label>
-                <input id="stock" asp-for="Stock" class="form-control" value="@Model.Stock" />
+                <input id="stock" asp-for="Stock" class="form-control" />
             </div>
             <div class="form-group mb-2">
                 <label id="category" for="name">Category</label>
-                <input id="category" asp-for="CategoryId" class="form-control" value="@Model.CategoryId" />
+                <input id="category" asp-for="CategoryId" class="form-control" />
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

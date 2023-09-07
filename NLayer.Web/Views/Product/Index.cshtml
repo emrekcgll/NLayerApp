@@ -5,6 +5,7 @@
 }
 <div class="row">
     <div class="col-md-12">
+        <a href="/Product/Add">Add Product</a>
         <table class="table table-borderless">
             <thead>
                 <tr>
@@ -28,13 +29,13 @@
                         <td>@item.Price</td>
                         <td>@item.Category.Name</td>
                         <td>
-                            <a>Details</a>
+                            <a href="Product/Details/@item.Id">Details</a>
                         </td>
                         <td>
-                            <a>Update</a>
+                            <a href="/Product/Update/@item.Id">Update</a>
                         </td>
                         <td>
-                            <a>Delete</a>
+                            <a href="/Product/Delete/@item.Id">Delete</a>
                         </td>
                     </tr>
                 }

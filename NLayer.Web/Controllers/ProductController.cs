@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Humanizer;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NLayer.Core.DTOs;
@@ -35,10 +34,11 @@ namespace NLayer.Web.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            var product = _context.Products.Find(id);
+            var product = await _context.Products.FindAsync(id);
             if (product != null)
             {
                 _context.Remove(product);
+                await _context.SaveChangesAsync();
             }
             return RedirectToAction(nameof(Index));
         }
@@ -52,6 +52,7 @@ namespace NLayer.Web.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(ProductDTO dto)
         {
+            dto.CreatedDate = DateTime.Now;
             await _context.AddAsync(_mapper.Map<Product>(dto));
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
@@ -61,7 +62,8 @@ namespace NLayer.Web.Controllers
         public async Task<IActionResult> Update(int id)
         {
             var existingProduct = await _context.Products.FindAsync(id);
-            var existingProductDTO= _mapper.Map<ProductDTO>(existingProduct);
+
+            var existingProductDTO = _mapper.Map<ProductDTO>(existingProduct);
             return View(existingProductDTO);
         }
 
@@ -69,8 +71,7 @@ namespace NLayer.Web.Controllers
         public async Task<IActionResult> Update(ProductDTO dto)
         {
             var existingProduct = await _context.Products.FindAsync(dto.Id);
-            _mapper.Map<ProductDTO>(existingProduct); //_mapper.Map(dto, existingProduct);
-            _context.Update(existingProduct);
+            _context.Update(_mapper.Map(dto, existingProduct));
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
